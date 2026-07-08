@@ -36,7 +36,7 @@ export function Navbar() {
       <div className="w-full px-4 lg:px-8 flex items-center justify-between">
         <div className="flex items-center">
           <a href="#">
-            <img src="/logo.png" alt="Urban Taxi" className="h-12 md:h-14 lg:h-20 w-auto object-contain origin-left scale-100 md:scale-[1.5]" />
+            <img src="/logo.png" alt="Urban Taxi" className="h-16 md:h-20 lg:h-28 w-auto object-contain origin-left scale-110 md:scale-[1.75]" />
           </a>
         </div>
 
