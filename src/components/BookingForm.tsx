@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Calendar, Users, Car, ArrowRight, ShieldCheck, ChevronDown, User, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
-
+import { MapPin, Calendar, Users, Car, ArrowRight, ShieldCheck, ChevronDown, User } from 'lucide-react';
 export function BookingForm() {
   const [name, setName] = useState('');
   const [pickup, setPickup] = useState('Anywhere in Nagpur');
