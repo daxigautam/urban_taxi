@@ -45,13 +45,13 @@ export function HeroSection() {
               Travel Together.
             </h1>
 
-            <div className="mb-8 space-y-2">
-              <p className="text-base md:text-lg text-white font-medium">
-                Anywhere in Nagpur. Everywhere with Comfort.
-              </p>
+            <div className="mb-10 space-y-6">
               <p className="text-gray-300 text-xs md:text-sm max-w-sm leading-relaxed font-light">
                 Luxury rides for group travel, corporate trips, family vacations, weddings, and more.
               </p>
+              <h3 className="text-xl md:text-2xl text-accent font-heading tracking-wider drop-shadow-lg max-w-[280px] sm:max-w-sm md:max-w-md leading-relaxed">
+                "Anywhere from Nagpur. Everywhere with Comfort."
+              </h3>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-12">

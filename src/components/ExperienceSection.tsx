@@ -11,9 +11,9 @@ export function ExperienceSection() {
           muted
           playsInline
           poster="/hero-bg.png"
-          className="w-full h-full object-cover grayscale-[20%]"
+          className="w-full h-full object-cover grayscale-[20%] scale-110 origin-center pointer-events-none"
         >
-          <source src="/advertisement.mp4" type="video/mp4" />
+          <source src="/innova-crysta-white.mp4" type="video/mp4" />
         </video>
         {/* Dark Cinematic Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10" />

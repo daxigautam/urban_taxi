@@ -6,7 +6,7 @@ const galleryItems = [
   { url: '/gallery/urban-taxi-video-2.mp4', type: 'video', span: 'md:col-span-2 md:row-span-2', title: 'Luxury Fleet Flow' },
   { url: '/gallery/force-urbania.avif', type: 'image', span: 'md:col-span-1 md:row-span-1', title: 'Force Urbania Interior' },
   { url: '/gallery/urban-taxi-video-1.mp4', type: 'video', span: 'md:col-span-1 md:row-span-1', title: 'Friends Road Trip' },
-  { url: '/gallery/Luxury_van_driving_mountain_high…_202607061327.mp4', type: 'video', span: 'md:col-span-3 md:row-span-1', title: 'Mountain Drive Experience' },
+  { url: '/innova-crysta-white.mp4', type: 'video', span: 'md:col-span-3 md:row-span-1', title: 'Mountain Drive Experience' },
 ];
 
 export function GallerySection() {
