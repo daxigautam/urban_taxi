@@ -10,7 +10,7 @@ const benefits = [
   { icon: Navigation, title: 'GPS Tracking', desc: 'Real-time tracking for peace of mind during your entire journey.' },
 ];
 
-const sliderImages = ['/force-urbania.avif', '/white-innova.png'];
+const sliderImages = ['/black-urbania-edited-empty.png', '/white-innova.png'];
 
 export function BenefitsSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
