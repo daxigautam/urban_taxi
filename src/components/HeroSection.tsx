@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Star, CheckCircle2, Clock, ShieldCheck, ArrowRight, Play } from 'lucide-react';
+import { Star, CheckCircle2, ArrowRight } from 'lucide-react';
 import { BookingModal } from './BookingModal';
 import { useState, useEffect } from 'react';
 
