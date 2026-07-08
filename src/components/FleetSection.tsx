@@ -119,12 +119,13 @@ export function FleetSection() {
             transition={{ delay: 0.2 }}
             className="text-textSecondary max-w-2xl mx-auto"
           >
-            Our meticulously maintained fleet offers unparalleled comfort and elegance for every journey originating from Nagpur.
+            Our meticulously maintained fleet offers unparalleled comfort and elegance for<br />
+            <span className="text-accent font-medium">"every journey originating from Nagpur."</span>
           </motion.p>
         </div>
 
         {/* Decreased frame size by using max-w-5xl, increased gap to gap-16 lg:gap-24 */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
           {fleet.map((vehicle, index) => (
             <FleetCard key={vehicle.name} vehicle={vehicle} index={index} />
           ))}

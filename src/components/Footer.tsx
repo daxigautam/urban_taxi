@@ -60,7 +60,7 @@ export function Footer() {
             <ul className="space-y-6 text-sm text-textSecondary font-light">
               <li className="flex items-start space-x-4">
                 <MapPin className="text-accent shrink-0" size={20} />
-                <span>Level 4, IT Park Road,<br />Nagpur, Maharashtra 440022</span>
+                <span>Plot No. 125, Laxman Appt. 1st Floor,<br />Behind Ram Mandir, Swavalambi Nagar,<br />Nagpur 440022</span>
               </li>
               <li className="flex items-start space-x-4">
                 <Phone className="text-accent shrink-0 mt-1" size={20} />
