@@ -10,6 +10,7 @@ export function CtaSection() {
           loop
           muted
           playsInline
+          poster="/hero-bg.png"
           className="w-full h-full object-cover grayscale-[20%]"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-night-drive-on-a-highway-through-a-city-3155-large.mp4" type="video/mp4" />

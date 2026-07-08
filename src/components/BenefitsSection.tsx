@@ -10,7 +10,7 @@ const benefits = [
   { icon: Navigation, title: 'GPS Tracking', desc: 'Real-time tracking for peace of mind during your entire journey.' },
 ];
 
-const sliderImages = ['/force-urbania.avif', '/front-left-side-47.avif'];
+const sliderImages = ['/black-urbania-edited-empty.png', '/white-innova.png'];
 
 export function BenefitsSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -88,7 +88,10 @@ export function BenefitsSection() {
             className="relative"
           >
             {/* Image Slider */}
-            <div className="relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden mb-8 group border border-white/10 shadow-2xl bg-[#0c0c0c]">
+            <div 
+              onClick={() => setCurrentImageIndex((prev) => (prev + 1) % sliderImages.length)}
+              className="relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden mb-8 group border border-white/10 shadow-2xl bg-[#0c0c0c] cursor-pointer"
+            >
               <AnimatePresence mode="wait">
                 <motion.img 
                   key={currentImageIndex}

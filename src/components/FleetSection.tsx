@@ -5,15 +5,15 @@ const fleet = [
   {
     name: 'Force Urbania',
     image: '/force-urbania.avif', 
-    capacity: '17 Passengers',
+    capacity: '16+1 SEATER',
     luggage: '15 Bags',
-    features: ['Premium Recliner Seats', 'Standing Height Cabin', 'Panoramic Windows'],
+    features: ['Roof Carrier', 'Premium Recliner Seats', 'Standing Height Cabin', 'Panoramic Windows'],
     description: 'The ultimate luxury minibus for large families, corporate outings, and wedding groups. Experience airplane-like comfort on the road.',
   },
   {
     name: 'Toyota Innova Crysta',
-    image: '/front-left-side-47.avif', 
-    capacity: '7 Passengers',
+    image: '/white-innova.png', 
+    capacity: '6+1 SEATER',
     luggage: '4 Bags',
     features: ['Captain Seats', 'Silent Cabin', 'Plush Interiors'],
     description: 'The gold standard in premium chauffeur-driven cars. Perfect for airport transfers, business meetings, and small family getaways.',
@@ -71,7 +71,7 @@ function FleetCard({ vehicle, index }: { vehicle: any, index: number }) {
             {vehicle.features.map((feature: string) => (
               <div key={feature} className="flex items-center space-x-3">
                 <CheckCircle2 className="text-accent" size={16} />
-                <span className="text-sm text-textSecondary">{feature}</span>
+                <span className={feature === 'Roof Carrier' ? "text-sm text-accent font-semibold tracking-wide" : "text-sm text-textSecondary"}>{feature}</span>
               </div>
             ))}
           </div>
