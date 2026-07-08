@@ -10,6 +10,7 @@ export function BookingForm() {
   const [passengers, setPassengers] = useState('');
   const [vehicle, setVehicle] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [whatsappMessage, setWhatsappMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,35 +21,42 @@ export function BookingForm() {
     
     // Format WhatsApp message
     const message = `*New Booking Request*%0A%0A*Name:* ${name}%0A*Pickup:* ${pickup}%0A*Drop:* ${drop}%0A*Date:* ${date}%0A*Passengers:* ${passengers}%0A*Vehicle:* ${vehicle}`;
-    const whatsappUrl = `https://wa.me/919766631092?text=${message}`;
+    setWhatsappMessage(message);
     
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank');
-    
-    // Show success state
+    // Show selection state
     setIsSubmitted(true);
   };
 
   if (isSubmitted) {
     return (
       <div className="bg-[#111111]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-10 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center text-center min-h-[500px]">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", duration: 0.6 }}
-          className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mb-6"
-        >
-          <CheckCircle2 size={40} className="text-accent" />
-        </motion.div>
-        <h3 className="text-2xl font-heading text-white mb-4">Thank you for your booking!</h3>
-        <p className="text-textSecondary mb-8 max-w-[250px] mx-auto">
-          We have directed you to WhatsApp to complete your reservation. We will be in touch shortly.
+        <h3 className="text-2xl font-heading text-white mb-4">Choose a Representative</h3>
+        <p className="text-textSecondary mb-8 max-w-[280px] mx-auto">
+          Please select which number you would like to send your booking details to via WhatsApp.
         </p>
+        
+        <div className="flex flex-col gap-4 w-full max-w-xs mx-auto mb-8">
+          <button
+            onClick={() => window.open(`https://wa.me/919823959770?text=${whatsappMessage}`, '_blank')}
+            className="w-full py-4 bg-[#25D366] text-white font-bold tracking-widest text-[11px] uppercase flex items-center justify-center gap-3 hover:bg-[#1ebe57] transition-colors rounded-lg shadow-md"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Send to +91 9823959770
+          </button>
+          <button
+            onClick={() => window.open(`https://wa.me/919811612383?text=${whatsappMessage}`, '_blank')}
+            className="w-full py-4 bg-[#25D366] text-white font-bold tracking-widest text-[11px] uppercase flex items-center justify-center gap-3 hover:bg-[#1ebe57] transition-colors rounded-lg shadow-md"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Send to +91 9811612383
+          </button>
+        </div>
+
         <button
           onClick={() => setIsSubmitted(false)}
           className="py-3 px-8 border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:border-accent hover:text-accent transition-colors rounded-sm"
         >
-          Book Another Ride
+          Back to Form
         </button>
       </div>
     );

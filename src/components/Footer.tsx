@@ -62,13 +62,12 @@ export function Footer() {
                 <MapPin className="text-accent shrink-0" size={20} />
                 <span>Level 4, IT Park Road,<br />Nagpur, Maharashtra 440022</span>
               </li>
-              <li className="flex items-center space-x-4">
-                <Phone className="text-accent shrink-0" size={20} />
-                <a href="tel:+919876543210" className="hover:text-accent transition-colors">+91 98765 43210</a>
-              </li>
-              <li className="flex items-center space-x-4">
-                <Mail className="text-accent shrink-0" size={20} />
-                <a href="mailto:booking@urbantaxi.com" className="hover:text-accent transition-colors">booking@urbantaxi.com</a>
+              <li className="flex items-start space-x-4">
+                <Phone className="text-accent shrink-0 mt-1" size={20} />
+                <div className="flex flex-col space-y-2">
+                  <a href="tel:+919823959770" className="hover:text-accent transition-colors">+91 9823959770</a>
+                  <a href="tel:+919811612383" className="hover:text-accent transition-colors">+91 9811612383</a>
+                </div>
               </li>
             </ul>
           </div>

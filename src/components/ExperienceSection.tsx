@@ -10,6 +10,7 @@ export function ExperienceSection() {
           loop
           muted
           playsInline
+          poster="/hero-bg.png"
           className="w-full h-full object-cover grayscale-[20%]"
         >
           <source src="/advertisement.mp4" type="video/mp4" />
