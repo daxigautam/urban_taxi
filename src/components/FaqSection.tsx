@@ -26,9 +26,9 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-primary relative">
+    <section className="pt-12 pb-16 md:py-24 bg-primary relative">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
