@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Mousewheel } from 'swiper/modules';
 import { Quote, X, MessageSquarePlus } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -101,7 +101,7 @@ export function TestimonialsSection() {
         >
           <Swiper
             key={testimonials.length} // Force re-render when new testimonial is added
-            modules={[Autoplay]}
+            modules={[Autoplay, Mousewheel]}
             spaceBetween={30}
             slidesPerView={1}
             breakpoints={{
@@ -111,6 +111,8 @@ export function TestimonialsSection() {
             loop={testimonials.length >= 3}
             speed={4000}
             autoplay={{ delay: 0, disableOnInteraction: false }}
+            grabCursor={true}
+            mousewheel={{ forceToAxis: true }}
             className="pb-16 testimonials-swiper"
           >
             {testimonials.map((testimonial, index) => (

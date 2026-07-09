@@ -92,9 +92,9 @@ function FleetCard({ vehicle, index }: { vehicle: any, index: number }) {
 
 export function FleetSection() {
   return (
-    <section id="fleet" className="py-24 bg-primary relative">
+    <section id="fleet" className="pt-12 pb-16 md:py-24 bg-primary relative">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

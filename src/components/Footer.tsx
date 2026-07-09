@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-1 md:order-none">
             <Link to="/" className="flex flex-col mb-6">
               <span className="font-heading text-2xl font-bold tracking-wider text-white">
                 URBAN <span className="text-accent">TAXI</span>
@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="order-3 md:order-none">
             <h4 className="text-white font-heading text-lg mb-6 tracking-wide">Explore</h4>
             <ul className="space-y-4 text-sm text-textSecondary font-light">
               <li><a href="#fleet" className="hover:text-accent transition-colors">Our Fleet</a></li>
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="order-4 md:order-none">
             <h4 className="text-white font-heading text-lg mb-6 tracking-wide">Services</h4>
             <ul className="space-y-4 text-sm text-textSecondary font-light">
               <li><a href="#" className="hover:text-accent transition-colors">Corporate Travel</a></li>
@@ -55,7 +55,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="order-2 md:order-none">
             <h4 className="text-white font-heading text-lg mb-6 tracking-wide">Contact</h4>
             <ul className="space-y-6 text-sm text-textSecondary font-light">
               <li className="flex items-start space-x-4">
