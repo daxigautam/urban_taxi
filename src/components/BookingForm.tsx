@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Calendar, Users, Car, ArrowRight, ShieldCheck, ChevronDown, User } from 'lucide-react';
+import { MapPin, Calendar, Users, Car, ArrowRight, ShieldCheck, ChevronDown, User, Clock } from 'lucide-react';
 export function BookingForm() {
   const [name, setName] = useState('');
   const [pickup, setPickup] = useState('Anywhere in Nagpur');
@@ -7,6 +7,7 @@ export function BookingForm() {
   const [date, setDate] = useState('');
   const [passengers, setPassengers] = useState('');
   const [vehicle, setVehicle] = useState('');
+  const [days, setDays] = useState('1');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
 
@@ -17,8 +18,16 @@ export function BookingForm() {
       return;
     }
     
+    let estimatedPrice = 0;
+    const numDays = parseInt(days) || 1;
+    if (vehicle.includes('Innova')) {
+      estimatedPrice = numDays * 6405;
+    } else if (vehicle.includes('Urbania')) {
+      estimatedPrice = numDays * 9713;
+    }
+    
     // Format WhatsApp message
-    const message = `*New Booking Request*%0A%0A*Name:* ${name}%0A*Pickup:* ${pickup}%0A*Drop:* ${drop}%0A*Date:* ${date}%0A*Passengers:* ${passengers}%0A*Vehicle:* ${vehicle}`;
+    const message = `*New Booking Request*%0A%0A*Name:* ${name}%0A*Pickup:* ${pickup}%0A*Drop:* ${drop}%0A*Date:* ${date}%0A*Days:* ${days}%0A*Passengers:* ${passengers}%0A*Vehicle:* ${vehicle}%0A*Estimated Price:* ₹${estimatedPrice}`;
     setWhatsappMessage(message);
     
     // Show selection state
@@ -147,6 +156,25 @@ export function BookingForm() {
           </div>
         </div>
 
+        {/* Days Field */}
+        <div className="relative flex items-center bg-white/5 border border-white/10 rounded-lg p-3 hover:border-accent/50 transition-colors">
+          <Clock size={20} className="text-gray-400 absolute left-4" />
+          <div className="pl-10 w-full flex justify-between items-center cursor-pointer">
+            <div className="flex flex-col w-full">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest">Number of Days</span>
+              <input 
+                type="number"
+                min="1"
+                value={days}
+                onChange={(e) => setDays(e.target.value)}
+                placeholder="e.g. 3"
+                className="bg-transparent text-sm text-white focus:outline-none placeholder-gray-400 w-full"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Passengers Field */}
         <div className="relative flex items-center bg-white/5 border border-white/10 rounded-lg p-3 hover:border-accent/50 transition-colors">
           <Users size={20} className="text-gray-400 absolute left-4" />
@@ -189,6 +217,16 @@ export function BookingForm() {
             <ChevronDown size={14} className="text-gray-500 absolute right-4 pointer-events-none" />
           </div>
         </div>
+
+        {/* Estimated Price Display */}
+        {vehicle && days && (
+          <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 text-center mt-4">
+            <span className="text-[10px] text-textSecondary uppercase tracking-widest block mb-1">Estimated Outstation Price</span>
+            <span className="text-2xl font-bold text-accent font-sans">
+              ₹ {(vehicle.includes('Innova') ? (parseInt(days) || 1) * 6405 : (parseInt(days) || 1) * 9713).toLocaleString('en-IN')}
+            </span>
+          </div>
+        )}
 
         {/* Submit Button */}
         <button 

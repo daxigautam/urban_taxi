@@ -1,16 +1,10 @@
 import { motion } from 'framer-motion';
 import { Star, CheckCircle2, Clock, ShieldCheck, ArrowRight, Play } from 'lucide-react';
-import { BookingModal } from './BookingModal';
-import { useState, useEffect } from 'react';
 
 export function HeroSection() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
-  useEffect(() => {
-    const handleOpenBooking = () => setIsBookingModalOpen(true);
-    window.addEventListener('openBooking', handleOpenBooking);
-    return () => window.removeEventListener('openBooking', handleOpenBooking);
-  }, []);
+  const handleOpenBooking = () => {
+    window.dispatchEvent(new CustomEvent('openBooking'));
+  };
 
   return (
     <section className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 pb-4 md:pb-12 overflow-hidden bg-primary">
@@ -56,7 +50,7 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8 md:mb-12 w-full max-w-[260px] sm:max-w-none">
               <button 
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={handleOpenBooking}
                 className="w-full sm:w-auto px-6 py-3 bg-accent text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-white transition-colors flex items-center justify-center space-x-2 shadow-lg rounded-sm"
               >
                 <span>Book Your Ride</span>
@@ -133,8 +127,6 @@ export function HeroSection() {
         </div>
 
       </div>
-
-      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Users, Briefcase, Snowflake, Music, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const fleet = [
   {
@@ -9,6 +10,7 @@ const fleet = [
     luggage: '15 Bags',
     features: ['Roof Carrier', 'Premium Recliner Seats', 'Standing Height Cabin', 'Panoramic Windows'],
     description: 'The ultimate luxury minibus for large families, corporate outings, and wedding groups. Experience airplane-like comfort on the road.',
+    pricesRoute: '/urbania-prices'
   },
   {
     name: 'Toyota Innova Crysta',
@@ -17,10 +19,13 @@ const fleet = [
     luggage: '4 Bags',
     features: ['Captain Seats', 'Silent Cabin', 'Plush Interiors'],
     description: 'The gold standard in premium chauffeur-driven cars. Perfect for airport transfers, business meetings, and small family getaways.',
+    pricesRoute: '/innova-prices'
   }
 ];
 
 function FleetCard({ vehicle, index }: { vehicle: any, index: number }) {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -77,12 +82,18 @@ function FleetCard({ vehicle, index }: { vehicle: any, index: number }) {
           </div>
         </div>
 
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-4 flex flex-col sm:flex-row gap-3">
             <button 
                 onClick={() => window.dispatchEvent(new CustomEvent('openBooking'))}
-                className="inline-block w-full text-center py-4 border border-accent/50 text-accent hover:bg-accent hover:text-primary transition-colors duration-300 uppercase tracking-widest text-sm font-bold"
+                className="flex-1 inline-block text-center py-4 border border-accent/50 text-accent hover:bg-accent hover:text-primary transition-colors duration-300 uppercase tracking-widest text-sm font-bold"
             >
                 Reserve Now
+            </button>
+            <button 
+                onClick={() => navigate(vehicle.pricesRoute)}
+                className="flex-1 inline-block text-center py-4 border border-accent bg-accent text-primary hover:bg-white hover:border-white hover:text-primary transition-colors duration-300 uppercase tracking-widest text-sm font-bold"
+            >
+                View Prices
             </button>
         </div>
       </div>

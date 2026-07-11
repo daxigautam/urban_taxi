@@ -6,8 +6,17 @@ import { MouseSpotlight } from './components/MouseSpotlight';
 import { FloatingParticles } from './components/FloatingParticles';
 import { FloatingContactButtons } from './components/FloatingContactButtons';
 
+import { UrbaniaPrices } from './pages/UrbaniaPrices';
+import { InnovaPrices } from './pages/InnovaPrices';
+import { BookingModal } from './components/BookingModal';
+import { useState } from 'react';
+
 function App() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
   useEffect(() => {
+    const handleOpenBooking = () => setIsBookingModalOpen(true);
+    window.addEventListener('openBooking', handleOpenBooking);
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -25,6 +34,7 @@ function App() {
 
     return () => {
       lenis.destroy();
+      window.removeEventListener('openBooking', handleOpenBooking);
     };
   }, []);
 
@@ -35,7 +45,10 @@ function App() {
       <FloatingContactButtons />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/urbania-prices" element={<UrbaniaPrices />} />
+        <Route path="/innova-prices" element={<InnovaPrices />} />
       </Routes>
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </BrowserRouter>
   );
 }
